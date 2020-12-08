@@ -46,7 +46,14 @@ https://www.tinkercad.com/things/9rm1CvY0a8d-week-2-lab-02/editel?sharecode=CBZN
 https://www.tinkercad.com/things/bl1YzlihyOE-week-2-lab-03/editel?sharecode=J586jMNTMFPWYOX2suSdtlEVMe9ZxzMhJWeie6GQRNo 
 ![week 2](week2/Week%202%20Lab%2003.png)
 ### Lab 04
- 
+*Working in groups of 4 or 5, pick one of the sensors below from your kit. To find out more about each one google the sensor + the magic word datasheet. Also, sensor + Arduino is a useful one. Hook it up and be prepared to explain to the class how to works next week.*
+Unfortunatley I was unable to find a group so I undertook this exercise on my own. I opted to investigate the LDR sensor. \
+***How it works***\
+***LDR use case*** \
+![week2](lab%205%20enclosure.jpg)\
+Roughly sketched above, I designed a system which would allow a plant owner to control the amount of light their plant gets, automatically. This may be useful for perhaps exotic plants with particularly demmanding light requirements. It works using an ldr which would be placed upon a stick implanted in the soil/pot of the plant - much like plant support skewers. This is then discretely connected to a fake plant across the window sill. This would contain the arduino in the flower pot, along with three LEDs that act as a traffic light, giving the user feedback on the lighting situation. The top of the pot will have a motor connected through gears to the blind controls which would allow the blinds to extend and contract to fulfil the lighting needs. \
+(https://www.tinkercad.com/things/aHbYxatmpxx-week-2-lab-04-05/editel?sharecode=VrQHgL7altU1XutWqtagn4WkqAs6sObAD_ULQ16YaXY)
+![week 2](week2/Week%202%20Lab%2004-05.png)
 ## **Week 3 - Transistors**
 ## **Week 4 - Motors, Diodes, Capacitors**
 ## **Week 5 - Final Project Motivation**
