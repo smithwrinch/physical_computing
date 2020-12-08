@@ -173,8 +173,8 @@ This week featured some interesting reading and design philosphies, as well as i
 (https://www.tinkercad.com/things/jWRfnN3gpNj-week03-lab044/editel?sharecode=TJjfGAWhcw9vuKOWW1vWT-wGze44qxYpTp3c-zSETgg) 
 
 ![week 3](week3/neutral.PNG)
-![week 3](week3/awake.PNG)
 ![week 3](week3/alarmed.PNG)
+![week 3](week3/awake.PNG)
 ![week 3](week3/dead.PNG)
 ```
 #include <LiquidCrystal.h>
