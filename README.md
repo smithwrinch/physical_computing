@@ -20,9 +20,86 @@ This introductory week I learned how to use Tinkercad, autodesk's online web app
 ### Lab 03
 ### Lab 04
 *Create a speculative sci-fi machine using only parts from this lab.* \
-https://www.tinkercad.com/things/4F22k5IbPRL-daring-bombul-crift/editel?sharecode=Xqdjl5lyryqeKdOlKy3-qbLiBkT0nU5MuHQJOTZeXyQ \
+(https://www.tinkercad.com/things/4F22k5IbPRL-sleepy-ai/editel?sharecode=nEZtdNL-RRIM60uy7Fzulz8-650Uwu2q4j7sAgx8OtY) \
 I pictured an AI sleeping. I wanted to show a sense of organicness with just LEDs so this is them illustrating a sort of robotic sleep using a cyber-equivalence of breathing. Eventually the artificial intelligence has a nightmare which is indicated by the red warning light. The user has to press the button to reset or calm down the AI so it can return to a deep sleep.
+```
+int no_leds = 5;
 
+bool reset = false;
+
+void turn_off(int a){
+  digitalWrite(a, LOW);
+}
+
+void check_reset(){
+  if (digitalRead(10) == HIGH){ 
+  	reset = true;
+  } 
+}
+
+void turn_on(int a){
+  check_reset();
+  for (int i = 0; i < no_leds; i++){
+  	turn_off(i); 
+  }
+  digitalWrite(a, HIGH);  
+}
+void setup() {
+  for(int i = 0; i< no_leds; i++){
+  	pinMode(i, OUTPUT);
+  }
+  pinMode(13, OUTPUT); //for red LED
+  pinMode(10, INPUT);
+}
+
+void loop() {
+  for( int i = 1050; i >=0; i -= 200){ 
+    if(reset){
+      break;
+    }
+	one_iteration(i);
+  }
+  if(!reset){
+ 	 warning();
+  }
+  
+  turn_on(0);
+  turn_off(13);
+  reset = false;
+  
+}
+
+void warning(){
+  for(int i =0; i = 3; i++){
+    if(reset){
+      break;
+    }
+  	turn_off(13);
+    delay(500);
+    turn_on(13);
+	one_iteration(100);
+    turn_off(1);
+  }
+}
+
+void one_iteration(int time){
+  for(int i = 0; i< no_leds; i++){
+    turn_on(i);
+    delay(time);
+    if(reset){
+      break;
+    }
+  }
+  for(int i = no_leds-2; i>0; i--){
+    turn_on(i);
+    delay(time);
+    if(reset){
+      break;
+    }
+  }
+  
+}
+```
 ![week 1](week1/sleepy-ai.png)
 
 ## **Week 2 - Sensors and Serial Data**
@@ -37,8 +114,24 @@ TODO
 TODO 
 ### Lab 02
 *Hook up a knob and have it change the brightness of an LED* \
-https://www.tinkercad.com/things/9rm1CvY0a8d-week-2-lab-02/editel?sharecode=CBZNycEl1QY8UXv4IiIwtMK9QRfQ3l8SNbjwVh-zg4Q 
+(https://www.tinkercad.com/things/9rm1CvY0a8d-week-2-lab-02/editel?sharecode=P4wJTJKBdMgHNoh-YxZ09-_kP83RwutRcGr1uYV4Qkw)
+```
+int val = 0;
 
+void setup()
+{
+  pinMode(0, OUTPUT);
+}
+
+void loop()
+{
+  val = analogRead(A0);
+  digitalWrite(0, HIGH);
+  delay(val);
+  digitalWrite(0, LOW);
+  delay(val);
+}
+```
 ![week 2](week2/Week%202%20Lab%2002.png)
 
 ### Lab 03
@@ -56,7 +149,128 @@ TODO \
 ![week2](week2/lab%205%20enclosure.jpg)\
 Roughly sketched above, I designed a system which would allow a plant owner to control the amount of light their plant gets, automatically. This may be useful for perhaps exotic plants with particularly demmanding light requirements. It works using an ldr which would be placed upon a stick implanted in the soil/pot of the plant - much like plant support skewers. This is then discretely connected to a fake plant across the window sill. This would contain the arduino in the flower pot, along with three LEDs that act as a traffic light, giving the user feedback on the lighting situation. The top of the pot will have a motor connected through gears to the blind controls which would allow the blinds to extend and contract to fulfil the lighting needs. \
 (https://www.tinkercad.com/things/aHbYxatmpxx-week-2-lab-04-05/editel?sharecode=VrQHgL7altU1XutWqtagn4WkqAs6sObAD_ULQ16YaXY)
+```
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+byte eye_one[8] = {
+  B00000,
+  B00000,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B00000,
+  B00000
+};
+
+int led1 = 8;
+int led2 = 10;
+int led3 = 9;
+
+int ldrPin = A0;
+void setup() {
+  lcd.begin(16, 2);
+  lcd.createChar(0, eye_one);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  pinMode(ldrPin, INPUT);
+  
+  Serial.begin(9600);
+  neutral();
+}
+
+void loop() {
+  //neutral();
+  int ldrStatus = analogRead(ldrPin);
+  
+  //Serial.println(ldrStatus);
+  /*
+  
+  mood switching would depend on ldr in actual model,
+  would turn off lights as result 
+  
+  if(ldrStatus < 50){
+    digitalWrite(led1, HIGH);
+  }
+    else if (ldrStatus < 400){
+      digitalWrite(led2, HIGH);
+      awake();
+    }
+  else{
+    digitalWrite(led3, HIGH);
+	angry();
+  }*/
+  randomlySwitchLight();
+}
+void angry(){
+   lcd.setCursor(6, 0);
+   lcd.print("> <");
+   lcd.setCursor(0, 1);
+   lcd.print("       x");
+   delay(100); 
+}
+
+void awake(){
+   lcd.setCursor(6, 0);
+   lcd.print("0 0");
+  
+   lcd.setCursor(0, 1);
+   lcd.print("       .");
+   delay(100); 
+}
+void waking_up(){
+   lcd.setCursor(0, 1);
+   lcd.print("       ."); 
+}
+void neutral(){
+ 
+  lcd.setCursor(0, 1);
+  lcd.print("       -");
+  lcd.setCursor(6, 0);
+  lcd.write(byte(0));
+  lcd.setCursor(8, 0);
+  lcd.write(byte(0)); 
+}
+void randomlySwitchLight(){
+  int finalNum = 0;
+  int r;
+  for(int i =8; i< 11; i++){
+    r = random(0,2);
+    finalNum += r;
+    if(r == 1){
+      digitalWrite(i, HIGH);
+    }
+    else{
+      digitalWrite(i, LOW);
+    }
+    /* this switch wouldn't be in final model */
+    Serial.println(finalNum);
+    switch(finalNum){
+      	case 2:
+      	awake();
+      	break;
+     	case 3:
+      	angry();
+      	break;
+      	case 1:
+      	waking_up();
+      	break;
+      	default:
+      	neutral();
+      	break;
+    }
+  	delay(1000);
+  }
+}
+```
 ![week 2](week2/WEEK%202%20LAB%2004-05.png)
+![week 2](week2/neutral.png)
+![week 2](week2/awake.png)
+![week 2](week2/alarmed.png)
+![week 2](week2/dead.png)
 ## **Week 3 - Transistors**
 This week featured some interesting reading and design philosphies, as well as introducing the NPN and PNP transistor. I particularly enjoyed the excerpt from Don Norman's everyday things and as a result I bought the book. In the excerpt he talks about the 7 stages of action which include 1 for the goal, 3 for execution (feedforward), and 3 for evaluation (feedback). I also learned about PWM - pulse width modulation - which allows a digital pin on a microcontroller to act like an analog pin. Additionally I recalled the voltage divider, something I haven't revised since school.
 ### LAB 01
@@ -132,12 +346,117 @@ After replacing the transistor I finally got it working. \
 ### LAB 03
 *Hook up an MPR121* \
 This was a very fun lab. Using Adafruits 12 key capacitive touch sensor I was able to get the arduino to determine which pin was being touched. I would love to investigate this further as there are many possibilities with this device, such as creating a virtual keyboard with everyday items, or creating a sophisticated hardware-based game. \
+
+```
+#include <Wire.h>
+#include "Adafruit_MPR121.h"
+
+#ifndef _BV
+#define _BV(bit) (1 << (bit)) 
+#endif
+
+// You can have up to 4 on one i2c bus but one is enough for testing!
+Adafruit_MPR121 cap = Adafruit_MPR121();
+
+// Keeps track of the last pins touched
+// so we know when buttons are 'released'
+uint16_t lasttouched = 0;
+uint16_t currtouched = 0;
+
+void setup() {
+  Serial.begin(9600);
+
+  while (!Serial) { // needed to keep leonardo/micro from starting too fast!
+    delay(10);
+  }
+  
+  Serial.println("Adafruit MPR121 Capacitive Touch sensor test"); 
+  
+  // Default address is 0x5A, if tied to 3.3V its 0x5B
+  // If tied to SDA its 0x5C and if SCL then 0x5D
+  if (!cap.begin(0x5A)) {
+    Serial.println("MPR121 not found, check wiring?");
+    while (1);
+  }
+  Serial.println("MPR121 found!");
+}
+
+void loop() {
+  // Get the currently touched pads
+  currtouched = cap.touched();
+  
+  for (uint8_t i=0; i<12; i++) {
+    // it if *is* touched and *wasnt* touched before, alert!
+    if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) ) {
+      Serial.print(i); Serial.println(" touched");
+    }
+    // if it *was* touched and now *isnt*, alert!
+    if (!(currtouched & _BV(i)) && (lasttouched & _BV(i)) ) {
+      Serial.print(i); Serial.println(" released");
+    }
+  }
+
+  // reset our state
+  lasttouched = currtouched;
+
+  // comment out this line for detailed data from the sensor!
+  return;
+  
+  // debugging info, what
+  Serial.print("\t\t\t\t\t\t\t\t\t\t\t\t\t 0x"); Serial.println(cap.touched(), HEX);
+  Serial.print("Filt: ");
+  for (uint8_t i=0; i<12; i++) {
+    Serial.print(cap.filteredData(i)); Serial.print("\t");
+  }
+  Serial.println();
+  Serial.print("Base: ");
+  for (uint8_t i=0; i<12; i++) {
+    Serial.print(cap.baselineData(i)); Serial.print("\t");
+  }
+  Serial.println();
+  
+  // put a delay so it isn't overwhelming
+  delay(100);
+}
+
+```
 ![week 4](week4/lab4b.jpg)
 \ ***TODO*** 
 ![week 4](week4/lab4a.mp4)
 ### LAB 04
 *Create a capacitive touch sensor* \
 This took a great many pieces of foil from me. I experimented with quite a few different configurations but each one was very temperamental. This wasn't surprising though as all capacitive touch required was the Capense library and the arduino! Pretty cool. The video is me touching a very rudimentary piece of foil and turning an led off or on. This lab taught me how my desk light works, which also uses a more sophisticated and less temperamental form of capacitive touch. \
+#include <CapacitiveSensor.h>
+```
+CapacitiveSensor   cs_2_4 = CapacitiveSensor(2,4); // 1M resistor between pins 2 & 4, pin 4 is sensor pin, add a wire and or foil
+
+int in = 2; 
+int out = 4;  
+int state = HIGH;  
+int r;           
+int p = LOW;    
+long time = 0;       
+long debounce = 200;
+void setup()
+{
+  pinMode(4, INPUT);
+  pinMode(8, OUTPUT);
+}
+void loop()                    
+{
+ 
+  r = digitalRead(4);
+  if (r == HIGH && p == LOW && millis() - time > debounce) {
+    if (state == HIGH)
+      state = LOW;
+    else 
+      state = HIGH;
+    time = millis();    
+  }
+  digitalWrite(8, state);
+  p = r;
+}
+```
 ***TODO*** \
 ![week 4](week4/lab5.mp4)
 ## **Week 5 - Final Project Motivation**
