@@ -83,7 +83,7 @@ My kit finally came this week! I figured it was much more difficult to form conn
 *Hook up a servo* \
 Below is an example of the code I used to make the servo work. The video includes an experiment I did for the final year project, completed many weeks later.
 \
-''
+'''code
 #include <Servo.h> 
 int servoPin = 3; 
 Servo Servo1; 
@@ -101,13 +101,13 @@ void loop(){
    Servo1.write(180); 
    delay(1000); 
 }
-''
+'''
 \ ***TODO*** \
 ![week 4](week4/lab2.mp4)
 ### LAB 02
 *Hook up a motor* \
 I initially had difficulties connecting the motor up correctly. I later realised this was due to using a MOSFET transistor as opposed to an NPN. Below you can see the motor never completely turning off. \
-''
+'''code
 const int switchPin = 2;
 const int motorPin = 9;
 int switchState = 0;
@@ -124,7 +124,7 @@ void loop(){
  digitalWrite(motorPin, LOW);
  }
 }
-''
+'''
 \ ***TODO*** \
 ![week 4](week4/lab3v.mp4)
 After replacing the transistor I finally got it working. \
