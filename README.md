@@ -149,6 +149,33 @@ TODO \
 ![week2](week2/lab%205%20enclosure.jpg)\
 Roughly sketched above, I designed a system which would allow a plant owner to control the amount of light their plant gets, automatically. This may be useful for perhaps exotic plants with particularly demmanding light requirements. It works using an ldr which would be placed upon a stick implanted in the soil/pot of the plant - much like plant support skewers. This is then discretely connected to a fake plant across the window sill. This would contain the arduino in the flower pot, along with three LEDs that act as a traffic light, giving the user feedback on the lighting situation. The top of the pot will have a motor connected through gears to the blind controls which would allow the blinds to extend and contract to fulfil the lighting needs. \
 (https://www.tinkercad.com/things/aHbYxatmpxx-week-2-lab-04-05/editel?sharecode=VrQHgL7altU1XutWqtagn4WkqAs6sObAD_ULQ16YaXY)
+
+![week 2](week2/WEEK%202%20LAB%2004-05.png)
+
+## **Week 3 - Transistors**
+This week featured some interesting reading and design philosphies, as well as introducing the NPN and PNP transistor. I particularly enjoyed the excerpt from Don Norman's everyday things and as a result I bought the book. In the excerpt he talks about the 7 stages of action which include 1 for the goal, 3 for execution (feedforward), and 3 for evaluation (feedback). I also learned about PWM - pulse width modulation - which allows a digital pin on a microcontroller to act like an analog pin. Additionally I recalled the voltage divider, something I haven't revised since school.
+### LAB 01
+*Use PWM to fade an LED* \
+(https://www.tinkercad.com/things/dYzENKUxyr1-week3-lab01/editel?sharecode=ZElwWpRXSxYTDJ-bIHE_-Ep-NJ-2hw8jxPfI-bl5QoY) 
+![week 3](week3/WEEK3-LAB01.png)
+### LAB 02
+*Thinking about voltage dividers: hook up the circuit in the slides with the light dependent resistor* \
+(https://www.tinkercad.com/things/bujQeFxmb1b-shiny-albar-trug/editel?sharecode=v3EcAp0yGToDPvTFKFaNReMPpFgRx7l6cBa1k3r0He8) 
+![week 3](week3/WEEK3-LAB02.png)
+### LAB 03
+*Using transistors, make a dark detecting LED (From Circuit diagram to breadboard)* \
+(https://www.tinkercad.com/things/5Bvo2FaqNjF-daring-bombul/editel?sharecode=3FVSvEGSAVOD5dsviL4kEG0kaS56nmyduOB-WW32AYE) 
+![week 3](week3/WEEK3-LAB03.png)
+### LAB 04
+*Design a system, based on what we have learned so far, which feedbacks on itself. How could interaction work within a system which is continually feeding back on itself* \
+![week 3](week3/WEEK3-LAB04-%20description.jpg) 
+\ My initial thought with this task was to create something similar to a useless machine. I considered a way for such a machine to have more of a personality. Following the rough sketch above, I opeted to use an LCD screen to simulate a face. The system would feedback on itself through the use of LEDs which trigger, and are triggered by, an LDR. They would initially turn on randomly before becoming some pseudorandym function of the LDR. This face would have different states depending on how many LEDs were on, causing the death state once all were on. I find it rather amusing that this AI would cause it's own state changes providing no useful function. I would love to work on this more, especially into a practical setting. I ordered an LCD screen to attempt this in the future.\
+(https://www.tinkercad.com/things/jWRfnN3gpNj-week03-lab044/editel?sharecode=TJjfGAWhcw9vuKOWW1vWT-wGze44qxYpTp3c-zSETgg) 
+
+![week 3](week3/neutral.png)
+![week 3](week3/awake.png)
+![week 3](week3/alarmed.png)
+![week 3](week3/dead.png)
 ```
 #include <LiquidCrystal.h>
 
@@ -266,30 +293,6 @@ void randomlySwitchLight(){
   }
 }
 ```
-![week 2](week2/WEEK%202%20LAB%2004-05.png)
-![week 2](week2/neutral.png)
-![week 2](week2/awake.png)
-![week 2](week2/alarmed.png)
-![week 2](week2/dead.png)
-## **Week 3 - Transistors**
-This week featured some interesting reading and design philosphies, as well as introducing the NPN and PNP transistor. I particularly enjoyed the excerpt from Don Norman's everyday things and as a result I bought the book. In the excerpt he talks about the 7 stages of action which include 1 for the goal, 3 for execution (feedforward), and 3 for evaluation (feedback). I also learned about PWM - pulse width modulation - which allows a digital pin on a microcontroller to act like an analog pin. Additionally I recalled the voltage divider, something I haven't revised since school.
-### LAB 01
-*Use PWM to fade an LED* \
-(https://www.tinkercad.com/things/dYzENKUxyr1-week3-lab01/editel?sharecode=ZElwWpRXSxYTDJ-bIHE_-Ep-NJ-2hw8jxPfI-bl5QoY) 
-![week 3](week3/WEEK3-LAB01.png)
-### LAB 02
-*Thinking about voltage dividers: hook up the circuit in the slides with the light dependent resistor* \
-(https://www.tinkercad.com/things/bujQeFxmb1b-shiny-albar-trug/editel?sharecode=v3EcAp0yGToDPvTFKFaNReMPpFgRx7l6cBa1k3r0He8) 
-![week 3](week3/WEEK3-LAB02.png)
-### LAB 03
-*Using transistors, make a dark detecting LED (From Circuit diagram to breadboard)* \
-(https://www.tinkercad.com/things/5Bvo2FaqNjF-daring-bombul/editel?sharecode=3FVSvEGSAVOD5dsviL4kEG0kaS56nmyduOB-WW32AYE) 
-![week 3](week3/WEEK3-LAB03.png)
-### LAB 04
-*Design a system, based on what we have learned so far, which feedbacks on itself. How could interaction work within a system which is continually feeding back on itself* \
-![week 3](week3/WEEK3-LAB04-%20description.jpg) 
-\ My initial thought with this task was to create something similar to a useless machine. I considered a way for such a machine to have more of a personality. Following the rough sketch above, I opeted to use an LCD screen to simulate a face. The system would feedback on itself through the use of LEDs which trigger, and are triggered by, an LDR. They would initially turn on randomly before becoming some pseudorandym function of the LDR. This face would have different states depending on how many LEDs were on, causing the death state once all were on. I find it rather amusing that this AI would cause it's own state changes providing no useful function. I would love to work on this more, especially into a practical setting. I ordered an LCD screen to attempt this in the future.\
-(https://www.tinkercad.com/things/jWRfnN3gpNj-week03-lab044/editel?sharecode=TJjfGAWhcw9vuKOWW1vWT-wGze44qxYpTp3c-zSETgg) 
 ![week 3](week3/WEEK03-LAB044.png)
 ## **Week 4 - Motors, Diodes, Capacitors**
 My kit finally came this week! I figured it was much more difficult to form connections in real life than on tinkercad so there was an adjustment period. In this week I learned about motors, servos and capacitive touch. I also got to read another chapter of the Design of Everyday Things, which I had bought last week. I was surprised that the motors and servos didn't need an analog pin, but instead just a digital PWM pin which I learned about in week 3. 
