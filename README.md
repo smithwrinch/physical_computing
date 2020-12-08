@@ -317,7 +317,7 @@ void loop(){
 }
 ```
 \ ***TODO*** \
-![week 4](week4/lab2.mp4)
+![week 4](week6/servo.gif)
 ### LAB 02
 *Hook up a motor* \
 I initially had difficulties connecting the motor up correctly. I later realised this was due to using a MOSFET transistor as opposed to an NPN. Below you can see the motor never completely turning off. \
@@ -340,7 +340,7 @@ void loop(){
 }
 ```
 \ ***TODO*** \
-![week 4](week4/lab3v.mp4)
+![week 4](week6/motor.gif)
 After replacing the transistor I finally got it working. \
 ***TODO***
 ### LAB 03
@@ -422,7 +422,7 @@ void loop() {
 ```
 ![week 4](week4/lab4b.jpg)
 \ ***TODO*** 
-![week 4](week4/lab4a.mp4)
+![week 4](week6/mr1.gif)
 ### LAB 04
 *Create a capacitive touch sensor* \
 This took a great many pieces of foil from me. I experimented with quite a few different configurations but each one was very temperamental. This wasn't surprising though as all capacitive touch required was the Capense library and the arduino! Pretty cool. The video is me touching a very rudimentary piece of foil and turning an led off or on. This lab taught me how my desk light works, which also uses a more sophisticated and less temperamental form of capacitive touch. \
@@ -458,7 +458,7 @@ void loop()
 }
 ```
 ***TODO*** \
-![week 4](week4/lab5.mp4)
+![week 4](week6/captouch.gif)
 ## **Week 5 - Final Project Motivation**
 This week was a pseudo-reading week and so there wasn't any lab work. I have included my final project presentation as well as a link to my final project blog. \
 [Presentation](week5/Project%20Proposal.pptx) \
