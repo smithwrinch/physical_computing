@@ -83,7 +83,7 @@ My kit finally came this week! I figured it was much more difficult to form conn
 *Hook up a servo* \
 Below is an example of the code I used to make the servo work. The video includes an experiment I did for the final year project, completed many weeks later.
 \
-""" 
+' 
 #include <Servo.h> 
 int servoPin = 3; 
 Servo Servo1; 
@@ -100,11 +100,13 @@ void loop(){
    // Make servo go to 180 degrees 
    Servo1.write(180); 
    delay(1000); 
-}"""
+}'
+\ ***TODO*** \
 ![week 4](week4/lab2.mp4)
 ### LAB 02
 *Hook up a motor* \
 I initially had difficulties connecting the motor up correctly. I later realised this was due to using a MOSFET transistor as opposed to an NPN. Below you can see the motor never completely turning off. \
+***TODO*** \
 ![week 4](week4/lab3v.mp4)
 After replacing the transistor I finally got it working. \
 ***TODO***
@@ -112,10 +114,12 @@ After replacing the transistor I finally got it working. \
 *Hook up an MPR121* \
 This was a very fun lab. Using Adafruits 12 key capacitive touch sensor I was able to get the arduino to determine which pin was being touched. I would love to investigate this further as there are many possibilities with this device, such as creating a virtual keyboard with everyday items, or creating a sophisticated hardware-based game. \
 ![week 4](week4/lab4b.jpg)
+\ ***TODO*** 
 ![week 4](week4/lab4a.mp4)
 ### LAB 04
 *Create a capacitive touch sensor* \
 This took a great many pieces of foil from me. I experimented with quite a few different configurations but each one was very temperamental. This wasn't surprising though as all capacitive touch required was the Capense library and the arduino! Pretty cool. The video is me touching a very rudimentary piece of foil and turning an led off or on. This lab taught me how my desk light works, which also uses a more sophisticated and less temperamental form of capacitive touch. \
+***TODO*** \
 ![week 4](week4/lab5.mp4)
 ## **Week 5 - Final Project Motivation**
 ## **Week 6 - Analog synthesisers**
