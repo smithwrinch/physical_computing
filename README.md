@@ -39,12 +39,12 @@ TODO
 *Hook up a knob and have it change the brightness of an LED* \
 https://www.tinkercad.com/things/9rm1CvY0a8d-week-2-lab-02/editel?sharecode=CBZNycEl1QY8UXv4IiIwtMK9QRfQ3l8SNbjwVh-zg4Q 
 
-![week 2](week2/Week 2 Lab 02-ai.png)
+![week 2](week2/Week 2 Lab 02.png)
 
 ### Lab 03
 *Hook up an LDR. Try making the LED change brightness depending on the light level.* \
 https://www.tinkercad.com/things/bl1YzlihyOE-week-2-lab-03/editel?sharecode=J586jMNTMFPWYOX2suSdtlEVMe9ZxzMhJWeie6GQRNo 
-![week 2](week2/Week 2 Lab 03-ai.png)
+![week 2](week2/Week 2 Lab 03.png)
 ### Lab 04
  
 ## **Week 3 - Transistors**
