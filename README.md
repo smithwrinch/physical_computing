@@ -4,16 +4,16 @@
 
 This repo contains all of the lab work I have been doing for my practical computing module for the Creative Computing MSc course.
 
-__Contents __
-* [Week 1](#Week-1)
-* Week 2
-* Week 3
-* Week 4
-* Week 5
-* Week 6
-* Week 7
-* Week 8
-## *Week 1 - The Map is Not the Territory*
+### Contents
+* [Week 1](#Week-1---the-beginning)
+* [Week 2](#Week-2---sensors-and-serial-data)
+* [Week 3](#Week-3---transistors)
+* [Week 4](#Week-4---motors,-diodes,-capacitors)
+* [Week 5](#Week-5---final-project-motivation)
+* [Week 6](#Week-6---analog-synthesisers)
+* [Week 7](#Week-7---shift-registers-and-multiplexing)
+* [Week 8](#Week-8---eagle-and-arduino-nano-33)
+## *Week 1 - The Beginning*
 This introductory week I learned how to use Tinkercad, autodesk's online web application which simulates an arduino and other other electrical components. This gave me a fundamental understanding of the arduino microcontroller and how it works in practice.
 ### Lab 01
 ### Lab 02
