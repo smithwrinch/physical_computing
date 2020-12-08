@@ -172,10 +172,10 @@ This week featured some interesting reading and design philosphies, as well as i
 \ My initial thought with this task was to create something similar to a useless machine. I considered a way for such a machine to have more of a personality. Following the rough sketch above, I opeted to use an LCD screen to simulate a face. The system would feedback on itself through the use of LEDs which trigger, and are triggered by, an LDR. They would initially turn on randomly before becoming some pseudorandym function of the LDR. This face would have different states depending on how many LEDs were on, causing the death state once all were on. I find it rather amusing that this AI would cause it's own state changes providing no useful function. I would love to work on this more, especially into a practical setting. I ordered an LCD screen to attempt this in the future.\
 (https://www.tinkercad.com/things/jWRfnN3gpNj-week03-lab044/editel?sharecode=TJjfGAWhcw9vuKOWW1vWT-wGze44qxYpTp3c-zSETgg) 
 
-![week 3](week3/neutral.png)
-![week 3](week3/awake.png)
-![week 3](week3/alarmed.png)
-![week 3](week3/dead.png)
+![week 3](week3/neutral.PNG)
+![week 3](week3/awake.PNG)
+![week 3](week3/alarmed.PNG)
+![week 3](week3/dead.PNG)
 ```
 #include <LiquidCrystal.h>
 
