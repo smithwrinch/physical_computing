@@ -460,6 +460,107 @@ void loop()
 ***TODO*** \
 ![week 4](week4/lab5.mp4)
 ## **Week 5 - Final Project Motivation**
+This week was a pseudo-reading week and so there wasn't any lab work. I have included my final project presentation as well as a link to my final project blog. \
+[Presentation](week5/Project%20Proposal.pptx)
+[Blog (TODO)](#)
 ## **Week 6 - Analog synthesisers**
+In this week I explored how audio synthesis may be made compeltely with analog components - not even with an arduino! It gave me insights as to how the speaker worked, and also fascination that this was how all early music synthesis was created. 
+
 ## **Week 7 - Shift Registers and Multiplexing**
+I learned how shift registers worked and how they can be used to expand the amount of I/O data pins available on the arduino. I also learned about the multiplexer and I investigated how this was different to a shift register. I found that a multiplexer was faster than a shift register but it uses more pins, and you can only get data from one sensor at a time. However a shift register is a bit slower but it can be daisy chained for a large number of sensors as well as allowing the user to get data from more than one sensor at a time. 
+### Lab 01
+*Connect eight LEDs using a shift register and three data pins* \
+```
+int latchPin = 5;
+int clockPin = 6;
+int dataPin = 4;
+ 
+byte leds = 0;
+ 
+void setup() 
+{
+  pinMode(latchPin, OUTPUT);
+  pinMode(dataPin, OUTPUT);  
+  pinMode(clockPin, OUTPUT);
+}
+ 
+void loop() 
+{
+  leds = 0;
+  updateShiftRegister();
+  delay(500);
+  for (int i = 0; i < 8; i++)
+  {
+    bitSet(leds, i);
+    updateShiftRegister();
+    delay(500);
+  }
+}
+ 
+void updateShiftRegister()
+{
+   digitalWrite(latchPin, LOW);
+   shiftOut(dataPin, clockPin, LSBFIRST, leds);
+   digitalWrite(latchPin, HIGH);
+}
+```
+### Lab 02
+*Repeat Lab 02 with brightness control*
+```
+int latchPin = 5;
+int clockPin = 6;
+int dataPin = 4;
+int outputEnablePin = 3;
+ 
+byte leds = 0;
+ 
+void setup() 
+{
+  pinMode(latchPin, OUTPUT);
+  pinMode(dataPin, OUTPUT);  
+  pinMode(clockPin, OUTPUT);
+  pinMode(outputEnablePin, OUTPUT); 
+}
+ 
+void loop() 
+{
+  setBrightness(255);
+  leds = 0;
+  updateShiftRegister();
+  delay(500);
+  for (int i = 0; i < 8; i++)
+  {
+    bitSet(leds, i);
+    updateShiftRegister();
+    delay(500);
+  }
+  for (byte b = 255; b > 0; b--)
+  {
+    setBrightness(b);
+    delay(50);
+  }
+}
+
+ 
+void updateShiftRegister()
+{
+   digitalWrite(latchPin, LOW);
+   shiftOut(dataPin, clockPin, LSBFIRST, leds);
+   digitalWrite(latchPin, HIGH);
+}
+ 
+void setBrightness(byte brightness) // 0 to 255
+{
+  analogWrite(outputEnablePin, 255-brightness);
+}
+```
 ## **Week 8 - Eagle and Arduino Nano 33**
+In this week I learned how to use eagle to design circuit boards. This encoded prototype circuit board could then be printed using a shop such as https://aisler.eu/.
+###Lab 01
+*Create a PCB using Eagle*
+###Lab 02
+*Learn the sensors of the Arduino Nano 33 Sense BLE*
+###Lab 03
+*Machine learning tutorial*
+###Lab 4
+*Create a fictional interface which would exist in your library of the future using the Arduino Nano 33 Sense. It can be anything, but it must fit within the fictional world you created. Tell a very short continuation of your story along side the lab's project log.*
