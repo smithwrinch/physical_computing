@@ -465,6 +465,9 @@ This week was a pseudo-reading week and so there wasn't any lab work. I have inc
 [Blog (TODO)](#)
 ## **Week 6 - Analog synthesisers**
 In this week I explored how audio synthesis may be made compeltely with analog components - not even with an arduino! It gave me insights as to how the speaker worked, and also fascination that this was how all early music synthesis was created. 
+### Lab 01
+[![Watch the video](https://img.youtube.com/vi/CNvzz-SKkQk/maxresdefault.jpg)](https://youtu.be/CNvzz-SKkQk)
+### Lab 02
 
 ## **Week 7 - Shift Registers and Multiplexing**
 I learned how shift registers worked and how they can be used to expand the amount of I/O data pins available on the arduino. I also learned about the multiplexer and I investigated how this was different to a shift register. I found that a multiplexer was faster than a shift register but it uses more pins, and you can only get data from one sensor at a time. However a shift register is a bit slower but it can be daisy chained for a large number of sensors as well as allowing the user to get data from more than one sensor at a time. 
