@@ -72,13 +72,51 @@ This week featured some interesting reading and design philosphies, as well as i
 (https://www.tinkercad.com/things/5Bvo2FaqNjF-daring-bombul/editel?sharecode=3FVSvEGSAVOD5dsviL4kEG0kaS56nmyduOB-WW32AYE) 
 ![week 3](week3/WEEK3-LAB03.png)
 ### LAB 04
-*Design a system, based on what we have learned so far, which feedbacks on itself. How could interaction work within a system which is continually feeding back on itself*
+*Design a system, based on what we have learned so far, which feedbacks on itself. How could interaction work within a system which is continually feeding back on itself* \
 ![week 3](week3/WEEK3-LAB04-%20description.jpg)
 My initial thought with this task was to create something similar to a useless machine. I considered a way for such a machine to have more of a personality. Following the rough sketch above, I opeted to use an LCD screen to simulate a face. The system would feedback on itself through the use of LEDs which trigger, and are triggered by, an LDR. They would initially turn on randomly before becoming some pseudorandym function of the LDR. This face would have different states depending on how many LEDs were on, causing the death state once all were on. I find it rather amusing that this AI would cause it's own state changes providing no useful function. I would love to work on this more, especially into a practical setting. I ordered an LCD screen to attempt this in the future.\
 (https://www.tinkercad.com/things/jWRfnN3gpNj-week03-lab044/editel?sharecode=TJjfGAWhcw9vuKOWW1vWT-wGze44qxYpTp3c-zSETgg) 
-![week 3](week3/WEEK3-LAB044.png)
+![week 3](week3/WEEK03-LAB044.png)
 ## **Week 4 - Motors, Diodes, Capacitors**
-My kit finally came this week! I figured it was much more difficult to form connections in real life than on tinkercad so there was an adjustment period. 
+My kit finally came this week! I figured it was much more difficult to form connections in real life than on tinkercad so there was an adjustment period. In this week I learned about motors, servos and capacitive touch. I also got to read another chapter of the Design of Everyday Things, which I had bought last week. I was surprised that the motors and servos didn't need an analog pin, but instead just a digital PWM pin which I learned about in week 3. 
+### LAB 01
+*Hook up a servo* \
+Below is an example of the code I used to make the servo work. The video includes an experiment I did for the final year project, completed many weeks later.
+\
+""" 
+#include <Servo.h> 
+int servoPin = 3; 
+Servo Servo1; 
+void setup() { 
+   Servo1.attach(servoPin); 
+}
+void loop(){ 
+   // Make servo go to 0 degrees 
+   Servo1.write(0); 
+   delay(1000); 
+   // Make servo go to 90 degrees 
+   Servo1.write(90); 
+   delay(1000); 
+   // Make servo go to 180 degrees 
+   Servo1.write(180); 
+   delay(1000); 
+}"""
+![week 4](week4/lab2.mp4)
+### LAB 02
+*Hook up a motor* \
+I initially had difficulties connecting the motor up correctly. I later realised this was due to using a MOSFET transistor as opposed to an NPN. Below you can see the motor never completely turning off. \
+![week 4](week4/lab3v.mp4)
+After replacing the transistor I finally got it working. \
+***TODO***
+### LAB 03
+*Hook up an MPR121* \
+This was a very fun lab. Using Adafruits 12 key capacitive touch sensor I was able to get the arduino to determine which pin was being touched. I would love to investigate this further as there are many possibilities with this device, such as creating a virtual keyboard with everyday items, or creating a sophisticated hardware-based game. \
+![week 4](week4/lab4b.jpg)
+![week 4](week4/lab4a.mp4)
+### LAB 04
+*Create a capacitive touch sensor* \
+This took a great many pieces of foil from me. I experimented with quite a few different configurations but each one was very temperamental. This wasn't surprising though as all capacitive touch required was the Capense library and the arduino! Pretty cool. The video is me touching a very rudimentary piece of foil and turning an led off or on. This lab taught me how my desk light works, which also uses a more sophisticated and less temperamental form of capacitive touch. \
+![week 4](week4/lab5.mp4)
 ## **Week 5 - Final Project Motivation**
 ## **Week 6 - Analog synthesisers**
 ## **Week 7 - Shift Registers and Multiplexing**
