@@ -556,11 +556,11 @@ void setBrightness(byte brightness) // 0 to 255
 ```
 ## **Week 8 - Eagle and Arduino Nano 33**
 In this week I learned how to use eagle to design circuit boards. This encoded prototype circuit board could then be printed using a shop such as https://aisler.eu/.
-###Lab 01
+### Lab 01
 *Create a PCB using Eagle*
-###Lab 02
+### Lab 02
 *Learn the sensors of the Arduino Nano 33 Sense BLE*
-###Lab 03
+### Lab 03
 *Machine learning tutorial*
-###Lab 4
+### Lab 4
 *Create a fictional interface which would exist in your library of the future using the Arduino Nano 33 Sense. It can be anything, but it must fit within the fictional world you created. Tell a very short continuation of your story along side the lab's project log.*
