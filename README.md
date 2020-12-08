@@ -461,7 +461,7 @@ void loop()
 ![week 4](week4/lab5.mp4)
 ## **Week 5 - Final Project Motivation**
 This week was a pseudo-reading week and so there wasn't any lab work. I have included my final project presentation as well as a link to my final project blog. \
-[Presentation](week5/Project%20Proposal.pptx)
+[Presentation](week5/Project%20Proposal.pptx) \
 [Blog (TODO)](#)
 ## **Week 6 - Analog synthesisers**
 In this week I explored how audio synthesis may be made compeltely with analog components - not even with an arduino! It gave me insights as to how the speaker worked, and also fascination that this was how all early music synthesis was created. 
@@ -508,7 +508,7 @@ void updateShiftRegister()
 }
 ```
 ### Lab 02
-*Repeat Lab 02 with brightness control*
+*Repeat Lab 01 with brightness control*
 ```
 int latchPin = 5;
 int clockPin = 6;
