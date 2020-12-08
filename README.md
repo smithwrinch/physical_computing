@@ -73,8 +73,8 @@ This week featured some interesting reading and design philosphies, as well as i
 ![week 3](week3/WEEK3-LAB03.png)
 ### LAB 04
 *Design a system, based on what we have learned so far, which feedbacks on itself. How could interaction work within a system which is continually feeding back on itself* \
-![week 3](week3/WEEK3-LAB04-%20description.jpg)
-My initial thought with this task was to create something similar to a useless machine. I considered a way for such a machine to have more of a personality. Following the rough sketch above, I opeted to use an LCD screen to simulate a face. The system would feedback on itself through the use of LEDs which trigger, and are triggered by, an LDR. They would initially turn on randomly before becoming some pseudorandym function of the LDR. This face would have different states depending on how many LEDs were on, causing the death state once all were on. I find it rather amusing that this AI would cause it's own state changes providing no useful function. I would love to work on this more, especially into a practical setting. I ordered an LCD screen to attempt this in the future.\
+![week 3](week3/WEEK3-LAB04-%20description.jpg) 
+\ My initial thought with this task was to create something similar to a useless machine. I considered a way for such a machine to have more of a personality. Following the rough sketch above, I opeted to use an LCD screen to simulate a face. The system would feedback on itself through the use of LEDs which trigger, and are triggered by, an LDR. They would initially turn on randomly before becoming some pseudorandym function of the LDR. This face would have different states depending on how many LEDs were on, causing the death state once all were on. I find it rather amusing that this AI would cause it's own state changes providing no useful function. I would love to work on this more, especially into a practical setting. I ordered an LCD screen to attempt this in the future.\
 (https://www.tinkercad.com/things/jWRfnN3gpNj-week03-lab044/editel?sharecode=TJjfGAWhcw9vuKOWW1vWT-wGze44qxYpTp3c-zSETgg) 
 ![week 3](week3/WEEK03-LAB044.png)
 ## **Week 4 - Motors, Diodes, Capacitors**
@@ -106,7 +106,23 @@ void loop(){
 ### LAB 02
 *Hook up a motor* \
 I initially had difficulties connecting the motor up correctly. I later realised this was due to using a MOSFET transistor as opposed to an NPN. Below you can see the motor never completely turning off. \
-***TODO*** \
+'const int switchPin = 2;
+const int motorPin = 9;
+int switchState = 0;
+void setup() {
+ pinMode(motorPin, OUTPUT);
+ pinMode(switchPin, INPUT);
+}
+void loop(){
+ switchState = digitalRead(switchPin);
+ if (switchState == HIGH) {
+ digitalWrite(motorPin, HIGH);
+ }
+ else {
+ digitalWrite(motorPin, LOW);
+ }
+}'
+\ ***TODO*** \
 ![week 4](week4/lab3v.mp4)
 After replacing the transistor I finally got it working. \
 ***TODO***
