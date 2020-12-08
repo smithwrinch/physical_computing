@@ -16,8 +16,11 @@ This repo contains all of the lab work I have been doing for my practical comput
 ## **Week 1 - The Beginning**
 This introductory week I learned how to use Tinkercad, autodesk's online web application which simulates an arduino and other other electrical components. This gave me a fundamental understanding of the arduino microcontroller and how it works in practice.
 ### Lab 01
+![week 2](week1/1.png)
 ### Lab 02
+![week 2](week1/2.png)
 ### Lab 03
+![week 2](week1/3.png)
 ### Lab 04
 *Create a speculative sci-fi machine using only parts from this lab.* \
 (https://www.tinkercad.com/things/4F22k5IbPRL-sleepy-ai/editel?sharecode=nEZtdNL-RRIM60uy7Fzulz8-650Uwu2q4j7sAgx8OtY) \
