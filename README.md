@@ -62,7 +62,7 @@ This week featured some interesting reading and design philosphies, as well as i
 ### LAB 01
 *Use PWM to fade an LED*
 (https://www.tinkercad.com/things/dYzENKUxyr1-week3-lab01/editel?sharecode=ZElwWpRXSxYTDJ-bIHE_-Ep-NJ-2hw8jxPfI-bl5QoY) \
-![week 3](week2/WEEK%203%20LAB%2001.png)
+![week 3](week3/WEEK3-LAB01.png)
 ## **Week 4 - Motors, Diodes, Capacitors**
 ## **Week 5 - Final Project Motivation**
 ## **Week 6 - Analog synthesisers**
