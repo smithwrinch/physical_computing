@@ -667,7 +667,8 @@ void loop() {
   }
 }
 ```
-![week 8](week8/gyro.gif)
+
+[![Watch the video](https://img.youtube.com/vi/eIu6ZWyGdXM/maxresdefault.jpg)](https://youtu.be/eIu6ZWyGdXM)
 
 #### Gesture recognition
 Using the on-board ApAPDS9960 sensor the nano can detect certain gestures. The code below provides feedback as to whether a hand gesture was up, down, left, and right, by lighting the on-board LED and RGB LED. \
@@ -675,7 +676,7 @@ Right = RED \
 Left = GREEN\
 Up = BLUE\
 Down = YELLOW (bottom left)
-[![Watch the video](https://img.youtube.com/vi/YJEzf6JjXE/maxresdefault.jpg)](https://youtu.be/YJEzf6JjXE)
+[![Watch the video](https://img.youtube.com/vi/0YJEzf6JjXE/maxresdefault.jpg)](https://youtu.be/0YJEzf6JjXE)
 
 ### Lab 03
 *Machine learning tutorial*
