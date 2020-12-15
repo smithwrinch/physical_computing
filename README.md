@@ -463,8 +463,7 @@ void loop()
   p = r;
 }
 ```
-***TODO*** \
-![week 4](week6/captouch.gif)
+![week 6](week6/captouch.gif)
 ## **Week 5 - Final Project Motivation**
 This week was a pseudo-reading week and so there wasn't any lab work. I have included my final project presentation as well as a link to my final project blog. \
 [Presentation](week5/Project%20Proposal.pptx) \
@@ -479,6 +478,7 @@ In this week I explored how audio synthesis may be made compeltely with analog c
 I learned how shift registers worked and how they can be used to expand the amount of I/O data pins available on the arduino. I also learned about the multiplexer and I investigated how this was different to a shift register. I found that a multiplexer was faster than a shift register but it uses more pins, and you can only get data from one sensor at a time. However a shift register is a bit slower but it can be daisy chained for a large number of sensors as well as allowing the user to get data from more than one sensor at a time. 
 ### Lab 01
 *Connect eight LEDs using a shift register and three data pins* \
+
 ```
 int latchPin = 5;
 int clockPin = 6;
@@ -513,6 +513,29 @@ void updateShiftRegister()
    digitalWrite(latchPin, HIGH);
 }
 ```
+Another animation
+![week 4](week7/shift.gif)
+```
+void loop() 
+{
+  updateShiftRegister();
+  for (int i = 0; i < 8; i+=2)
+  {
+    bitSet(leds, i);
+    updateShiftRegister();
+  }
+    delay(500);
+    leds = 0;
+    for (int i = 1; i < 8; i+=2)
+  {
+    bitSet(leds, i);
+    updateShiftRegister();
+  }
+    delay(500);
+    leds = 0;
+}
+```
+![week 4](week7/shift2.gif)
 ### Lab 02
 *Repeat Lab 01 with brightness control*
 ```
@@ -564,11 +587,96 @@ void setBrightness(byte brightness) // 0 to 255
 }
 ```
 ## **Week 8 - Eagle and Arduino Nano 33**
-In this week I learned how to use eagle to design circuit boards. This encoded prototype circuit board could then be printed using a shop such as https://aisler.eu/.
+In this week I learned how to use eagle to design circuit boards. This encoded prototype circuit board could then be printed using a shop such as https://aisler.eu/. I also learned about the very powerful Nano 33 BLE Sense, and all the sensors it has on the tiny board. 
 ### Lab 01
 *Create a PCB using Eagle*
 ### Lab 02
-*Learn the sensors of the Arduino Nano 33 Sense BLE*
+*Learn the sensors of the Arduino Nano 33 Sense BLE* \
+#### The thermometer, barometer, and humidity sensor
+Using the on-board sensors I printed to the serial monitor what the temperature, pressure, and humidity was in my room.
+```
+#include <Arduino_HTS221.h>
+#include <Arduino_LPS22HB.h>
+
+void setup() {
+    Serial.begin(9600);
+    while (!Serial);
+    if (!HTS.begin()) {
+        Serial.println("Failed to initialize humidity temperature sensor!");
+        while (1);
+    }
+      if (!BARO.begin()) {
+        Serial.println("Failed to initialize pressure sensor!");
+        while (1);
+    }
+}
+
+void loop() {
+    // read all the sensor values
+    float temperature = HTS.readTemperature();
+    float humidity    = HTS.readHumidity();
+    float pressure = BARO.readPressure();
+    // print each of the sensor values
+    Serial.print("Temperature = ");
+    Serial.print(temperature);
+    Serial.println(" °C");
+    Serial.print("Humidity    = ");
+    Serial.print(humidity);
+    Serial.println(" %");
+    Serial.println();
+    Serial.print("Pressure = ");
+    Serial.print(pressure);
+    Serial.println(" kPa");
+    Serial.println();
+    delay(1000);
+}
+```
+![week 8](week8/sensors.jpg)
+#### The gyroscope and accelerometer
+The code below detects whether the microcontroller is tilted to the left, right, or if it remains flat.
+```
+#include <Arduino_LSM9DS1.h>
+
+void setup() {
+  Serial.begin(9600);
+  // start the IMU:
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU");
+    // stop here if you can't access the IMU:
+    while (true);
+  }
+}
+
+void loop() {
+  float x, y, z, delta = 0.05;
+
+  if (IMU.accelerationAvailable())
+  {
+    IMU.readAcceleration(x, y, z);
+ 
+    if(y <= delta && y >= -delta)
+          Serial.println("flat");
+    else if(y > delta && y < 1 - delta)
+          Serial.println("tilted to the left");
+    else if(y >= 1 - delta)
+          Serial.println("left");
+    else if(y < -delta && y > delta - 1)
+          Serial.println("tilted to the right");
+    else
+          Serial.println("right");
+  }
+}
+```
+![week 8](week8/gyro.gif)
+
+#### Gesture recognition
+Using the on-board ApAPDS9960 sensor the nano can detect certain gestures. The code below provides feedback as to whether a hand gesture was up, down, left, and right, by lighting the on-board LED and RGB LED. \
+Right = RED \
+Left = GREEN\
+Up = BLUE\
+Down = YELLOW (bottom left)
+[![Watch the video](https://img.youtube.com/vi/YJEzf6JjXE/maxresdefault.jpg)](https://youtu.be/YJEzf6JjXE)
+
 ### Lab 03
 *Machine learning tutorial*
 ### Lab 4
