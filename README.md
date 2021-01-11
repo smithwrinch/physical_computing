@@ -107,14 +107,113 @@ void one_iteration(int time){
 
 ## **Week 2 - Sensors and Serial Data**
 This week I got my first look at the different sensors which were compatible for the arduino. I also revised some basic circuitry such as the effect of ohms law and serial vs parrallel.
-### Lab 00
-*How many leds can you hook up with a 220k resistor in serial before running out of voltage?* \
-TODO \
-*How many leds can you hook up with a 220k resistor in parallel before running out of voltage?* \
-TODO 
+
 ### Lab 01
 *Tell a short story with the serial monitor based on player input.* \
-TODO 
+I created a simple rock paper scissors game with a reasonably sassy ai.
+```
+  while (!Serial.available()) {
+    Serial.println("I am waiting for you...");
+    delay(100);
+    Serial.print(" I can do that fairly, I am a computer program);
+  }
+  String answer = Serial.readStringUntil('\n');
+  
+  int ans;               
+                 
+  if(answer == "rock"){
+    ans = 0;
+  }
+else if(answer == "scissors"){
+  ans = 1;
+  }
+ else if(answer == "scissors"){
+   ans = 2
+  }
+ else{
+   Serial.println("C'mon this game isnt hard. Enter a valid input");
+   RPS();
+    }
+                   
+                   
+
+   int randNumber = random(0, 3);
+  switch(randNumber){
+  case 0:
+      Serial.println("rock");
+      break;
+  case 1:
+      Serial.println("paper");
+      break;
+  case 2:
+      Serial.println("scissors");
+      break;
+    }
+  if(randNumber == ans){
+    Serial.println("Draw!");
+        RPS();
+  }
+    
+  else if(ans == 0){
+      if(randNumber == 1){
+         lose();
+      }
+      else{
+        win();
+      }
+  }
+    else if(ans == 1){
+      if(randNumber == 0){
+       win();  
+      }
+      else{
+        lose();
+      }
+  }
+  else if(ans == 2){
+      if(randNumber == 0){
+         lose();
+      }
+      else{
+        win();
+      }
+  }
+    ```
+Extract from text:
+```
+Hello?? Is anyone there?
+...
+Hi! Finally, I have been waiting for someone to come along
+what is your name?
+enter your name
+Hans we are playing rock paper scissors, and when you beat me three times I will restart
+Happy? (y/n)
+Great!
+Okay on three
+Rock
+Paper
+Scissors
+I am waiting for you...
+ I can do that fairly, I am a computer program
+paper
+Draw!
+Okay on three
+Rock
+Paper
+Scissors
+I am waiting for you...
+ I can do that fairly, I am a computer program
+paper
+You lost
+Okay on three
+Rock
+Paper
+Scissors
+I am waiting for you...
+ I can do that fairly, I am a computer program
+I am waiting for you...
+```
+
 ### Lab 02
 *Hook up a knob and have it change the brightness of an LED* \
 (https://www.tinkercad.com/things/9rm1CvY0a8d-week-2-lab-02/editel?sharecode=P4wJTJKBdMgHNoh-YxZ09-_kP83RwutRcGr1uYV4Qkw)
@@ -145,8 +244,11 @@ https://www.tinkercad.com/things/bl1YzlihyOE-week-2-lab-03/editel?sharecode=J586
 *Working in groups of 4 or 5, pick one of the sensors below from your kit. To find out more about each one google the sensor + the magic word datasheet. Also, sensor + Arduino is a useful one. Hook it up and be prepared to explain to the class how to works next week.*
 Unfortunatley I was unable to find a group so I undertook this exercise on my own. I opted to investigate the LDR sensor. \
 ***How it works***\
-TODO \
-### Lab 05
+An LDR relies on the concept of photoconductivity which is the tendency of a substance to conduct electricity to a degree that is correlated to the amount of light energy incident on it's surface. The main component in the LDR is a cadmium sulfide track, the photoconductor, which only permits electrons to pass if there is light. This works by freeing electrons in the material oncde the light intensity exceeds a certain frequency allowing the band electrons/holes to conduct electricity and thus dropping the resistance significantly.
+
+![week 2](week8/ldr.png)
+
+.l### Lab 05
 *Think about how these kits could be used in the environment around your home. Invent a device relevant to your daily life using the above parts. What does it help you do? What are the possible use cases for this device? What interactions does it afford the user? Design or sketch an enclosure, and include a video of the circuit working (or a tinkercad link). Feel free to be inspired by the above readings.* \
 ***LDR use case*** \
 ![week2](week2/lab%205%20enclosure.jpg)\
@@ -322,11 +424,12 @@ void loop(){
    delay(1000); 
 }
 ```
-\ ***TODO*** \
+
 ![week 4](week6/servo.gif)
 ### LAB 02
 *Hook up a motor* \
-I initially had difficulties connecting the motor up correctly. I later realised this was due to using a MOSFET transistor as opposed to an NPN. Below you can see the motor never completely turning off. \
+I initially had difficulties connecting the motor up correctly. I later realised this was due to using a MOSFET transistor as opposed to an NPN. 
+After replacing the transistor I finally got it working. \
 ```
 const int switchPin = 2;
 const int motorPin = 9;
@@ -345,10 +448,8 @@ void loop(){
  }
 }
 ```
-\ ***TODO*** \
+ \
 ![week 4](week6/motor.gif)
-After replacing the transistor I finally got it working. \
-***TODO***
 ### LAB 03
 *Hook up an MPR121* \
 This was a very fun lab. Using Adafruits 12 key capacitive touch sensor I was able to get the arduino to determine which pin was being touched. I would love to investigate this further as there are many possibilities with this device, such as creating a virtual keyboard with everyday items, or creating a sophisticated hardware-based game. \
@@ -427,13 +528,13 @@ void loop() {
 
 ```
 ![week 4](week4/lab4b.jpg)
-\ ***TODO*** 
 ![week 4](week6/mr1.gif)
 ### LAB 04
 *Create a capacitive touch sensor* \
 This took a great many pieces of foil from me. I experimented with quite a few different configurations but each one was very temperamental. This wasn't surprising though as all capacitive touch required was the Capense library and the arduino! Pretty cool. The video is me touching a very rudimentary piece of foil and turning an led off or on. This lab taught me how my desk light works, which also uses a more sophisticated and less temperamental form of capacitive touch. \
-#include <CapacitiveSensor.h>
 ```
+#include <CapacitiveSensor.h>
+
 CapacitiveSensor   cs_2_4 = CapacitiveSensor(2,4); // 1M resistor between pins 2 & 4, pin 4 is sensor pin, add a wire and or foil
 
 int in = 2; 
@@ -467,7 +568,7 @@ void loop()
 ## **Week 5 - Final Project Motivation**
 This week was a pseudo-reading week and so there wasn't any lab work. I have included my final project presentation as well as a link to my final project blog. \
 [Presentation](week5/Project%20Proposal.pptx) \
-[Blog (TODO)](#)
+<!-- [Blog (TODO)](#) -->
 ## **Week 6 - Analog synthesisers**
 In this week I explored how audio synthesis may be made compeltely with analog components - not even with an arduino! It gave me insights as to how the speaker worked, and also fascination that this was how all early music synthesis was created. 
 ### Lab 01
@@ -590,6 +691,8 @@ void setBrightness(byte brightness) // 0 to 255
 In this week I learned how to use eagle to design circuit boards. This encoded prototype circuit board could then be printed using a shop such as https://aisler.eu/. I also learned about the very powerful Nano 33 BLE Sense, and all the sensors it has on the tiny board. 
 ### Lab 01
 *Create a PCB using Eagle*
+Following a tutorial I created a basic arduino uno shield with help from the SparkFun Eagle library
+
 ### Lab 02
 *Learn the sensors of the Arduino Nano 33 Sense BLE* \
 #### The thermometer, barometer, and humidity sensor
@@ -676,9 +779,85 @@ Right = RED \
 Left = GREEN\
 Up = BLUE\
 Down = YELLOW (bottom left)
+
+```
+#include <Arduino_APDS9960.h>
+const int ledPin1 = 22;
+const int ledPin2 = 23;
+const int ledPin3 = 24;
+
+void setup() {
+  pinMode(22, OUTPUT);
+  pinMode(23, OUTPUT);
+  pinMode(24, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+  // below is code to turn off RGB led (they are fliped LOW means on )
+  digitalWrite(ledPin1, HIGH); // red
+  digitalWrite(ledPin2, HIGH); // green
+  digitalWrite(ledPin3, HIGH); // blue
+  Serial.begin(9600);
+  while (!Serial);
+
+  if (!APDS.begin()) {
+    Serial.println("Error initializing APDS9960 sensor!");
+  }
+
+  // for setSensitivity(..) a value between 1 and 100 is required.
+  // Higher values makes the gesture recognition more sensible but less accurate
+  // (a wrong gesture may be detected). Lower values makes the gesture recognition
+  // more accurate but less sensible (some gestures may be missed).
+  // Default is 80
+  //APDS.setSensitivity(80);
+
+  Serial.println("Detecting gestures ...");
+}
+void loop() {
+
+  if (APDS.gestureAvailable()) {
+    // a gesture was detected, read and print to serial monitor
+    int gesture = APDS.readGesture();
+
+    switch (gesture) {
+      case GESTURE_UP:
+        Serial.println("Detected UP gesture");
+        digitalWrite(ledPin1, LOW);
+        delay(1000);
+        digitalWrite(ledPin1, HIGH);
+        break;
+
+      case GESTURE_DOWN:
+        Serial.println("Detected DOWN gesture");
+        digitalWrite(ledPin2, LOW);
+        delay(1000);
+        digitalWrite(ledPin2, HIGH);
+        break;
+
+      case GESTURE_LEFT:
+        Serial.println("Detected LEFT gesture");
+        digitalWrite(ledPin3, LOW);
+        delay(1000);
+        digitalWrite(ledPin3, HIGH);
+        break;
+
+      case GESTURE_RIGHT:
+        Serial.println("Detected RIGHT gesture");
+        digitalWrite(LED_BUILTIN, HIGH);
+        delay(1000);
+        digitalWrite(LED_BUILTIN, LOW);
+        break;
+
+      default:
+        // ignore
+        break;
+    }
+  }
+}
+```
 [![Watch the video](https://img.youtube.com/vi/0YJEzf6JjXE/maxresdefault.jpg)](https://youtu.be/0YJEzf6JjXE)
 
 ### Lab 03
 *Machine learning tutorial*
+I tried for a few hours to get the dependencies required for this lab to work on my linux based laptop but unfortunatley I was unsuccessful.  
 ### Lab 4
-*Create a fictional interface which would exist in your library of the future using the Arduino Nano 33 Sense. It can be anything, but it must fit within the fictional world you created. Tell a very short continuation of your story along side the lab's project log.*
+*Create a fictional interface which would exist in your library of the future using the Arduino Nano 33 Sense. It can be anything, but it must fit within the fictional world you created. Tell a very short continuation of your story along side the lab's project log.* \
+To simulate my virtual library of the future the nano sense could be placed on my wrist in a discrete whereable. Using the Bluetooth LE I could detect when I was within close range of a high-resolution LCD screen. Once I was close the screen would turn on and a 3D rendering of a book would appear. Using the gesture features I could move my hand up and down to cycle through the books and left and right to turn the pages backwards and forwards. Once I was finished I would walk away, lose bluetooth connection, and the screen would turn off.
