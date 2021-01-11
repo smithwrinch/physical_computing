@@ -248,7 +248,7 @@ An LDR relies on the concept of photoconductivity which is the tendency of a sub
 
 ![week 2](week8/ldr.png)
 
-.l### Lab 05
+### Lab 05
 *Think about how these kits could be used in the environment around your home. Invent a device relevant to your daily life using the above parts. What does it help you do? What are the possible use cases for this device? What interactions does it afford the user? Design or sketch an enclosure, and include a video of the circuit working (or a tinkercad link). Feel free to be inspired by the above readings.* \
 ***LDR use case*** \
 ![week2](week2/lab%205%20enclosure.jpg)\
@@ -274,7 +274,7 @@ This week featured some interesting reading and design philosphies, as well as i
 ### LAB 04
 *Design a system, based on what we have learned so far, which feedbacks on itself. How could interaction work within a system which is continually feeding back on itself* \
 ![week 3](week3/WEEK3-LAB04-%20description.jpg) 
-\ My initial thought with this task was to create something similar to a useless machine. I considered a way for such a machine to have more of a personality. Following the rough sketch above, I opeted to use an LCD screen to simulate a face. The system would feedback on itself through the use of LEDs which trigger, and are triggered by, an LDR. They would initially turn on randomly before becoming some pseudorandym function of the LDR. This face would have different states depending on how many LEDs were on, causing the death state once all were on. I find it rather amusing that this AI would cause it's own state changes providing no useful function. I would love to work on this more, especially into a practical setting. I ordered an LCD screen to attempt this in the future.\
+My initial thought with this task was to create something similar to a useless machine. I considered a way for such a machine to have more of a personality. Following the rough sketch above, I opeted to use an LCD screen to simulate a face. The system would feedback on itself through the use of LEDs which trigger, and are triggered by, an LDR. They would initially turn on randomly before becoming some pseudorandym function of the LDR. This face would have different states depending on how many LEDs were on, causing the death state once all were on. I find it rather amusing that this AI would cause it's own state changes providing no useful function. I would love to work on this more, especially into a practical setting. I ordered an LCD screen to attempt this in the future.\
 (https://www.tinkercad.com/things/jWRfnN3gpNj-week03-lab044/editel?sharecode=TJjfGAWhcw9vuKOWW1vWT-wGze44qxYpTp3c-zSETgg) 
 
 ![week 3](week3/neutral.PNG)
@@ -404,7 +404,7 @@ My kit finally came this week! I figured it was much more difficult to form conn
 ### LAB 01
 *Hook up a servo* \
 Below is an example of the code I used to make the servo work. The video includes an experiment I did for the final year project, completed many weeks later.
-\
+
 ```
 #include <Servo.h> 
 int servoPin = 3; 
@@ -429,7 +429,7 @@ void loop(){
 ### LAB 02
 *Hook up a motor* \
 I initially had difficulties connecting the motor up correctly. I later realised this was due to using a MOSFET transistor as opposed to an NPN. 
-After replacing the transistor I finally got it working. \
+After replacing the transistor I finally got it working. 
 ```
 const int switchPin = 2;
 const int motorPin = 9;
@@ -452,7 +452,7 @@ void loop(){
 ![week 4](week6/motor.gif)
 ### LAB 03
 *Hook up an MPR121* \
-This was a very fun lab. Using Adafruits 12 key capacitive touch sensor I was able to get the arduino to determine which pin was being touched. I would love to investigate this further as there are many possibilities with this device, such as creating a virtual keyboard with everyday items, or creating a sophisticated hardware-based game. \
+This was a very fun lab. Using Adafruits 12 key capacitive touch sensor I was able to get the arduino to determine which pin was being touched. I would love to investigate this further as there are many possibilities with this device, such as creating a virtual keyboard with everyday items, or creating a sophisticated hardware-based game. 
 
 ```
 #include <Wire.h>
@@ -531,7 +531,7 @@ void loop() {
 ![week 4](week6/mr1.gif)
 ### LAB 04
 *Create a capacitive touch sensor* \
-This took a great many pieces of foil from me. I experimented with quite a few different configurations but each one was very temperamental. This wasn't surprising though as all capacitive touch required was the Capense library and the arduino! Pretty cool. The video is me touching a very rudimentary piece of foil and turning an led off or on. This lab taught me how my desk light works, which also uses a more sophisticated and less temperamental form of capacitive touch. \
+This took a great many pieces of foil from me. I experimented with quite a few different configurations but each one was very temperamental. This wasn't surprising though as all capacitive touch required was the Capense library and the arduino! Pretty cool. The video is me touching a very rudimentary piece of foil and turning an led off or on. This lab taught me how my desk light works, which also uses a more sophisticated and less temperamental form of capacitive touch. 
 ```
 #include <CapacitiveSensor.h>
 
@@ -567,7 +567,7 @@ void loop()
 ![week 6](week6/captouch.gif)
 ## **Week 5 - Final Project Motivation**
 This week was a pseudo-reading week and so there wasn't any lab work. I have included my final project presentation as well as a link to my final project blog. \
-[Presentation](week5/Project%20Proposal.pptx) \
+[Presentation](week5/Project%20Proposal.pptx) 
 <!-- [Blog (TODO)](#) -->
 ## **Week 6 - Analog synthesisers**
 In this week I explored how audio synthesis may be made compeltely with analog components - not even with an arduino! It gave me insights as to how the speaker worked, and also fascination that this was how all early music synthesis was created. 
@@ -578,8 +578,7 @@ In this week I explored how audio synthesis may be made compeltely with analog c
 ## **Week 7 - Shift Registers and Multiplexing**
 I learned how shift registers worked and how they can be used to expand the amount of I/O data pins available on the arduino. I also learned about the multiplexer and I investigated how this was different to a shift register. I found that a multiplexer was faster than a shift register but it uses more pins, and you can only get data from one sensor at a time. However a shift register is a bit slower but it can be daisy chained for a large number of sensors as well as allowing the user to get data from more than one sensor at a time. 
 ### Lab 01
-*Connect eight LEDs using a shift register and three data pins* \
-
+*Connect eight LEDs using a shift register and three data pins* 
 ```
 int latchPin = 5;
 int clockPin = 6;
@@ -694,7 +693,7 @@ In this week I learned how to use eagle to design circuit boards. This encoded p
 Following a tutorial I created a basic arduino uno shield with help from the SparkFun Eagle library
 
 ### Lab 02
-*Learn the sensors of the Arduino Nano 33 Sense BLE* \
+*Learn the sensors of the Arduino Nano 33 Sense BLE* 
 #### The thermometer, barometer, and humidity sensor
 Using the on-board sensors I printed to the serial monitor what the temperature, pressure, and humidity was in my room.
 ```
@@ -860,4 +859,5 @@ void loop() {
 I tried for a few hours to get the dependencies required for this lab to work on my linux based laptop but unfortunatley I was unsuccessful.  
 ### Lab 4
 *Create a fictional interface which would exist in your library of the future using the Arduino Nano 33 Sense. It can be anything, but it must fit within the fictional world you created. Tell a very short continuation of your story along side the lab's project log.* \
+\ 
 To simulate my virtual library of the future the nano sense could be placed on my wrist in a discrete whereable. Using the Bluetooth LE I could detect when I was within close range of a high-resolution LCD screen. Once I was close the screen would turn on and a 3D rendering of a book would appear. Using the gesture features I could move my hand up and down to cycle through the books and left and right to turn the pages backwards and forwards. Once I was finished I would walk away, lose bluetooth connection, and the screen would turn off.
