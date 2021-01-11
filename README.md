@@ -178,7 +178,7 @@ else if(answer == "scissors"){
         win();
       }
   }
-    ```
+```
 Extract from text:
 ```
 Hello?? Is anyone there?
